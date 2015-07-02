@@ -1,0 +1,28 @@
+{
+  "name": "reduce-reducers",
+  "version": "0.1.0",
+  "description": "Reduce multiple reducers into a single reducer",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "make test",
+    "prepublish": "make clean build"
+  },
+  "keywords": [
+    "reduce",
+    "reducers",
+    "functional",
+    "fp",
+    "redux"
+  ],
+  "author": "Andrew Clark <acdlite@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.20",
+    "chai": "^3.0.0",
+    "eslint": "^0.24.0",
+    "eslint-config-airbnb": "0.0.6",
+    "mocha": "^2.2.5"
+  }
+}
