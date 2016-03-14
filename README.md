@@ -5,7 +5,7 @@ reduce-reducers
 [![npm version](https://img.shields.io/npm/v/reduce-reducers.svg?style=flat-square)](https://www.npmjs.com/package/reduce-reducers)
 
 
-Reduce multiple reducers into a single reducer.
+Reduce multiple reducers into a single reducer from left to right.
 
 ```
 npm install --save reduce-reducers
