@@ -20,3 +20,17 @@ test('chains multiple reducers into a single reducer', t => {
   t.deepEqual(reducerAddMult({ A: 1, B: 2 }, 3), { A: 12, B: 2 });
   t.deepEqual(reducerMultAdd({ A: 1, B: 2 }, 3), { A: 6, B: 2 });
 });
+
+test('supports additional arguments', t => {
+  const addReducer = (prev, curr, scale) => ({
+    ...prev,
+    A: (prev.A + curr) * scale
+  });
+  const multReducer = (prev, curr, scale) => ({
+    ...prev,
+    A: prev.A * curr * scale
+  });
+  const reducerAddMult = reduceReducers(addReducer, multReducer);
+
+  t.deepEqual(reducerAddMult({ A: 1, B: 2 }, 3, 2), { A: 48, B: 2 });
+});
