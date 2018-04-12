@@ -38,7 +38,7 @@
     "bracketSpacing": true
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,md}": [
       "prettier --write",
       "git add"
     ]

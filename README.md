@@ -1,20 +1,25 @@
-# reduce-reducers
+# @redux-utilities/reduce-reducers
 
-[![build status](https://img.shields.io/travis/acdlite/reduce-reducers/master.svg?style=flat-square)](https://travis-ci.org/acdlite/reduce-reducers)
-[![npm version](https://img.shields.io/npm/v/reduce-reducers.svg?style=flat-square)](https://www.npmjs.com/package/reduce-reducers)
+[![Build Status](https://travis-ci.org/redux-utilities/reduce-reducers.svg?branch=master)](https://travis-ci.org/redux-utilities/reduce-reducers)
+![npm Version](https://img.shields.io/npm/v/@redux-utilities/reduce-reducers.svg)
+![npm Downloads Monthly](https://img.shields.io/npm/dm/@redux-utilities/reduce-reducers.svg)
 
-Reduce multiple reducers into a single reducer from left to right.
+> Reduce multiple reducers into a single reducer from left to right
+
+## Install
 
 ```
-npm install --save reduce-reducers
+npm install @redux-utilities/reduce-reducers
 ```
 
-## Example
+## Usage
 
 ```js
+import reduceReducers from '@redux-utilities/reduce-reducers';
+
 const reducer = reduceReducers(
-  (prev, curr) => ({...prev, A: prev.A + curr}),
-  (prev, curr) => ({...prev, B: prev.B * curr}),
+  (prev, curr) => ({ ...prev, A: prev.A + curr }),
+  (prev, curr) => ({ ...prev, B: prev.B * curr })
 );
 
 expect(reducer({ A: 1, B: 2 }, 3)).to.deep.equal({ A: 4, B: 6 });
