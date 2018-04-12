@@ -1,9 +1,7 @@
-reduce-reducers
-===============
+# reduce-reducers
 
 [![build status](https://img.shields.io/travis/acdlite/reduce-reducers/master.svg?style=flat-square)](https://travis-ci.org/acdlite/reduce-reducers)
 [![npm version](https://img.shields.io/npm/v/reduce-reducers.svg?style=flat-square)](https://www.npmjs.com/package/reduce-reducers)
-
 
 Reduce multiple reducers into a single reducer from left to right.
 
