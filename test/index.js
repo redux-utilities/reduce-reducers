@@ -1,5 +1,5 @@
 import test from 'ava';
-import reduceReducers from '../lib';
+import reduceReducers from '../src';
 
 test('combines multiple reducers into a single reducer', t => {
   const reducer = reduceReducers(
