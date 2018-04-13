@@ -26,6 +26,12 @@ expect(reducer({ A: 1, B: 2 }, 3)).to.deep.equal({ A: 4, B: 6 });
 expect(reducer({ A: 5, B: 8 }, 13)).to.deep.equal({ A: 18, B: 104 });
 ```
 
-## Why?
+## FAQ
+
+#### Why?
 
 Originally created to combine multiple Redux reducers that correspond to different actions (e.g. [like this](https://github.com/acdlite/redux-fsa/blob/master/src/handleActions.js#L12)). Technically works with any reducer, not just with Redux, though I don't know of any other use cases.
+
+#### What is the difference between `reduceReducers` and `combineReducers`?
+
+Take a look at this StackOverflow post: https://stackoverflow.com/questions/48104778/how-does-reducereducers-work
