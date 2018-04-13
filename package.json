@@ -16,8 +16,8 @@
   "repository": "redux-utilities/reduce-reducers",
   "scripts": {
     "precommit": "lint-staged",
-    "format": "prettier --write \"{lib,test}/*.js\"",
-    "format:check": "prettier --list-different \"{lib,test}/*.js\"",
+    "format": "prettier --write \"{lib,test}/*.{js,md}\"",
+    "format:check": "prettier --list-different \"{lib,test}/*.{js,md}\"",
     "lint": "xo",
     "test": "ava",
     "build": "babel src --out-dir=dist"
