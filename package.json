@@ -20,7 +20,8 @@
     "format:check": "prettier --list-different \"{lib,test}/*.{js,md}\"",
     "lint": "xo",
     "test": "ava",
-    "build": "babel src --out-dir=dist"
+    "build": "babel src --out-dir=dist",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "ava": "^0.25.0",
