@@ -1,6 +1,6 @@
 {
   "name": "@redux-utilities/reduce-reducers",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Reduce multiple reducers into a single reducer",
   "keywords": [
     "reduce",
