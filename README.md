@@ -1,21 +1,21 @@
-# @redux-utilities/reduce-reducers
+# reduce-reducers
 
 [![Build Status](https://travis-ci.org/redux-utilities/reduce-reducers.svg?branch=master)](https://travis-ci.org/redux-utilities/reduce-reducers)
-[![npm Version](https://img.shields.io/npm/v/@redux-utilities/reduce-reducers.svg)](https://www.npmjs.com/package/@redux-utilities/reduce-reducers)
-[![npm Downloads Monthly](https://img.shields.io/npm/dm/@redux-utilities/reduce-reducers.svg)](https://www.npmjs.com/package/@redux-utilities/reduce-reducers)
+[![npm Version](https://img.shields.io/npm/v/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)
+[![npm Downloads Monthly](https://img.shields.io/npm/dm/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)
 
 > Reduce multiple reducers into a single reducer from left to right
 
 ## Install
 
 ```
-npm install @redux-utilities/reduce-reducers
+npm install reduce-reducers
 ```
 
 ## Usage
 
 ```js
-import reduceReducers from '@redux-utilities/reduce-reducers';
+import reduceReducers from 'reduce-reducers';
 
 const reducer = reduceReducers(
   (prev, curr) => ({ ...prev, A: prev.A + curr }),
