@@ -19,35 +19,37 @@
     "format": "prettier --write \"{lib,test}/*.{js,md}\"",
     "format:check": "prettier --list-different \"{lib,test}/*.{js,md}\"",
     "lint": "xo",
-    "test": "ava",
+    "test": "jest",
     "build": "babel src --out-dir=dist",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint-plugin-prettier": "^2.6.0",
     "husky": "^0.14.3",
+    "jest": "^22.4.3",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.0",
     "xo": "^0.20.3"
   },
   "xo": {
     "prettier": true,
-    "space": true
+    "space": true,
+    "overrides": [
+      {
+        "files": "test/**/*.js",
+        "env": ["jest"]
+      }
+    ]
   },
   "prettier": {
     "singleQuote": true,
     "bracketSpacing": true,
     "trailingComma": "none"
-  },
-  "ava": {
-    "require": [
-      "babel-register"
-    ]
   },
   "lint-staged": {
     "*.{js,md}": [
