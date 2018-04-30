@@ -1,9 +1,18 @@
 {
   "presets": [
-    "env"
+    ["env", { "modules": false }]
   ],
-  "plugins": [
-    "add-module-exports",
-    "transform-es2015-modules-commonjs"
-  ]
+  "env": {
+    "commonjs": {
+      "plugins": [
+        "add-module-exports",
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
