@@ -1,4 +1,5 @@
 node_modules
-dist
+es
+lib
 .DS_Store
 *.log
