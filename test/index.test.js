@@ -2,8 +2,8 @@ import reduceReducers from '../src';
 
 test('combines multiple reducers into a single reducer', () => {
   const reducer = reduceReducers(
-    (prev, curr) => ({ ...prev, A: prev.A + curr }),
-    (prev, curr) => ({ ...prev, B: prev.B * curr })
+    (state, payload) => ({ ...state, A: state.A + payload }),
+    (state, payload) => ({ ...state, B: state.B * payload })
   );
 
   expect(reducer({ A: 1, B: 2 }, 3)).toEqual({ A: 4, B: 6 });
@@ -11,8 +11,8 @@ test('combines multiple reducers into a single reducer', () => {
 });
 
 test('chains multiple reducers into a single reducer', () => {
-  const addReducer = (prev, curr) => ({ ...prev, A: prev.A + curr });
-  const multReducer = (prev, curr) => ({ ...prev, A: prev.A * curr });
+  const addReducer = (state, payload) => ({ ...state, A: state.A + payload });
+  const multReducer = (state, payload) => ({ ...state, A: state.A * payload });
   const reducerAddMult = reduceReducers(addReducer, multReducer);
   const reducerMultAdd = reduceReducers(multReducer, addReducer);
 
@@ -21,13 +21,13 @@ test('chains multiple reducers into a single reducer', () => {
 });
 
 test('supports additional arguments', () => {
-  const addReducer = (prev, curr, scale) => ({
-    ...prev,
-    A: (prev.A + curr) * scale
+  const addReducer = (state, payload, scale) => ({
+    ...state,
+    A: (state.A + payload) * scale
   });
-  const multReducer = (prev, curr, scale) => ({
-    ...prev,
-    A: prev.A * curr * scale
+  const multReducer = (state, payload, scale) => ({
+    ...state,
+    A: state.A * payload * scale
   });
   const reducerAddMult = reduceReducers(addReducer, multReducer);
 

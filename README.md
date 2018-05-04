@@ -17,13 +17,15 @@ npm install reduce-reducers
 ```js
 import reduceReducers from 'reduce-reducers';
 
-const reducer = reduceReducers(
-  (prev, curr) => ({ ...prev, A: prev.A + curr }),
-  (prev, curr) => ({ ...prev, B: prev.B * curr })
-);
+const addReducer = (state, payload) => ({ ...state, A: state.A + payload });
+const multReducer = (state, payload) => ({ ...state, B: state.B * payload });
 
-expect(reducer({ A: 1, B: 2 }, 3)).to.deep.equal({ A: 4, B: 6 });
-expect(reducer({ A: 5, B: 8 }, 13)).to.deep.equal({ A: 18, B: 104 });
+const reducer = reduceReducers(addReducer, multReducer);
+
+const state = { A: 1, B: 2 };
+const payload = 3;
+
+reducer(state, payload); // { A: 4, B: 6 }
 ```
 
 ## FAQ
@@ -34,4 +36,4 @@ Originally created to combine multiple Redux reducers that correspond to differe
 
 #### What is the difference between `reduceReducers` and `combineReducers`?
 
-Take a look at this StackOverflow post: https://stackoverflow.com/questions/48104778/how-does-reducereducers-work
+This StackOverflow post explains it very well: https://stackoverflow.com/a/44371190/5741172

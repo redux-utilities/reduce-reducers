@@ -1,2 +1,5 @@
-export default (...reducers) => (previous, current, ...args) =>
-  reducers.reduce((p, r) => r(p, current, ...args), previous);
+export default (...reducers) => (prevState, value, ...args) =>
+  reducers.reduce(
+    (newState, reducer) => reducer(newState, value, ...args),
+    prevState
+  );
