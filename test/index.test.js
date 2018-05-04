@@ -1,5 +1,24 @@
 import reduceReducers from '../src';
 
+test('returns initialState', () => {
+  const initialState = { A: 0, B: 0 };
+  const reducer = reduceReducers(
+    (state, payload) => ({
+      ...state,
+      A: state.A + payload
+    }),
+    initialState
+  );
+
+  expect(reducer()).toEqual(initialState);
+});
+
+test('throws an error if initialState is undefined', () => {
+  expect(() => {
+    reduceReducers(undefined);
+  }).toThrow();
+});
+
 test('combines multiple reducers into a single reducer', () => {
   const reducer = reduceReducers(
     (state, payload) => ({ ...state, A: state.A + payload }),
