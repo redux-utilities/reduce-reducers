@@ -1474,6 +1474,10 @@ eslint-ast-utils@^1.0.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
+eslint-config-jest-files@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-jest-files/-/eslint-config-jest-files-0.1.2.tgz#4b3e5b3645937c3e3ae865830e86c594158db809"
+
 eslint-config-prettier@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
