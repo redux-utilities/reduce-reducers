@@ -17,10 +17,12 @@ npm install reduce-reducers
 ```js
 import reduceReducers from 'reduce-reducers';
 
+const initialState = { A: 0, B: 0 };
+
 const addReducer = (state, payload) => ({ ...state, A: state.A + payload });
 const multReducer = (state, payload) => ({ ...state, B: state.B * payload });
 
-const reducer = reduceReducers(addReducer, multReducer);
+const reducer = reduceReducers(addReducer, multReducer, initialState);
 
 const state = { A: 1, B: 2 };
 const payload = 3;
