@@ -9,11 +9,19 @@ export default (...args) => {
     );
   }
 
-  return (prevState, value, ...args) =>
-    typeof (prevState === 'undefined') && initialState
-      ? initialState
-      : reducers.reduce(
-          (newState, reducer) => reducer(newState, value, ...args),
-          prevState
-        );
+  return (prevState, value, ...args) => {
+    const prevStateIsUndefined = typeof (prevState === 'undefined');
+    const valueIsUndefined = typeof value === 'undefined';
+
+    if (prevStateIsUndefined && valueIsUndefined && initialState) {
+      return initialState;
+    }
+
+    return reducers.reduce(
+      (newState, reducer) => reducer(newState, value, ...args),
+      prevStateIsUndefined && !valueIsUndefined && initialState
+        ? initialState
+        : prevState
+    );
+  };
 };
