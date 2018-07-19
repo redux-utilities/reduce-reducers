@@ -52,3 +52,24 @@ test('supports additional arguments', () => {
 
   expect(reducerAddMult({ A: 1, B: 2 }, 3, 2)).toEqual({ A: 48, B: 2 });
 });
+
+test('no initialState supplied + undefined state: single reducer', () => {
+  const addReducer = (state = { A: 1, B: 2 }, payload) => ({
+    ...state,
+    A: state.A + payload
+  });
+  const reducer = reduceReducers(addReducer);
+
+  expect(reducer(undefined, 42)).toEqual(addReducer(undefined, 42));
+});
+
+test('no initialState supplied + undefined state: initial state defined by first reducer', () => {
+  const aReducer = (state = { A: 1, B: 2 }, payload) => ({
+    ...state,
+    A: state.A + payload
+  });
+  const bReducer = (state, payload) => ({ ...state, A: state.A * payload });
+  const reducerAB = reduceReducers(aReducer, bReducer);
+
+  expect(reducerAB(undefined, 3)).toEqual({ A: 12, B: 2 });
+});

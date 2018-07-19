@@ -10,7 +10,7 @@ export default (...args) => {
   }
 
   return (prevState, value, ...args) =>
-    typeof prevState === 'undefined'
+    typeof (prevState === 'undefined') && initialState
       ? initialState
       : reducers.reduce(
           (newState, reducer) => reducer(newState, value, ...args),
