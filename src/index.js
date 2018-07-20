@@ -10,7 +10,7 @@ export default (...args) => {
   }
 
   return (prevState, value, ...args) => {
-    const prevStateIsUndefined = typeof (prevState === 'undefined');
+    const prevStateIsUndefined = typeof prevState === 'undefined';
     const valueIsUndefined = typeof value === 'undefined';
 
     if (prevStateIsUndefined && valueIsUndefined && initialState) {
