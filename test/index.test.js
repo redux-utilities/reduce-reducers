@@ -86,3 +86,22 @@ test('no initialState supplied + undefined state: initial state defined by first
 
   expect(reducerAB(undefined, 3)).toEqual({ A: 12, B: 2 });
 });
+
+test('actions should progressively update state', () => {
+  const reducerA = (state, action) => {
+    if (action.type === 'A') return { ...state, a: true };
+    return state;
+  };
+  const reducerB = (state, action) => {
+    if (action.type === 'B') return { ...state, b: true };
+    return state;
+  };
+  const initial = { a: false, b: false };
+  const combined = reduceReducers(reducerA, reducerB, initial);
+
+  let state = combined(undefined, { type: 'A' });
+  expect(state).toEqual({ a: true, b: false });
+
+  state = combined(state, { type: 'B' });
+  expect(state).toEqual({ a: true, b: true });
+});
