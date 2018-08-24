@@ -17,17 +17,14 @@ export default (...args) => {
       return initialState;
     }
 
-    return reducers.reduce(
-      (newState, reducer, index) => {
-        if (typeof reducer === 'undefined') {
-          throw new TypeError(`An undefined reducer was passed in at index ${index}`);
-        }
+    return reducers.reduce((newState, reducer, index) => {
+      if (typeof reducer === 'undefined') {
+        throw new TypeError(
+          `An undefined reducer was passed in at index ${index}`
+        );
+      }
 
-        return reducer(newState, value, ...args);
-      },
-      prevStateIsUndefined && !valueIsUndefined && initialState
-        ? initialState
-        : prevState
-    );
+      return reducer(newState, value, ...args);
+    }, prevStateIsUndefined && !valueIsUndefined && initialState ? initialState : prevState);
   };
 };
