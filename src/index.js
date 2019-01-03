@@ -1,6 +1,5 @@
 export default (...args) => {
-  const initialState =
-    typeof args[args.length - 1] !== 'function' && args.pop();
+  const initialState = typeof args[0] !== 'function' && args.shift();
   const reducers = args;
 
   if (typeof initialState === 'undefined') {
@@ -17,14 +16,19 @@ export default (...args) => {
       return initialState;
     }
 
-    return reducers.reduce((newState, reducer, index) => {
-      if (typeof reducer === 'undefined') {
-        throw new TypeError(
-          `An undefined reducer was passed in at index ${index}`
-        );
-      }
+    return reducers.reduce(
+      (newState, reducer, index) => {
+        if (typeof reducer === 'undefined') {
+          throw new TypeError(
+            `An undefined reducer was passed in at index ${index}`
+          );
+        }
 
-      return reducer(newState, value, ...args);
-    }, prevStateIsUndefined && !valueIsUndefined && initialState ? initialState : prevState);
+        return reducer(newState, value, ...args);
+      },
+      prevStateIsUndefined && !valueIsUndefined && initialState
+        ? initialState
+        : prevState
+    );
   };
 };
