@@ -1,8 +1,6 @@
 # reduce-reducers
 
-[![Build Status](https://travis-ci.org/redux-utilities/reduce-reducers.svg?branch=master)](https://travis-ci.org/redux-utilities/reduce-reducers)
-[![npm Version](https://img.shields.io/npm/v/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)
-[![npm Downloads Monthly](https://img.shields.io/npm/dm/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)
+[![Build Status](https://travis-ci.org/redux-utilities/reduce-reducers.svg?branch=master)](https://travis-ci.org/redux-utilities/reduce-reducers)[![npm Version](https://img.shields.io/npm/v/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)[![npm Downloads Monthly](https://img.shields.io/npm/dm/reduce-reducers.svg)](https://www.npmjs.com/package/reduce-reducers)
 
 > Reduce multiple reducers into a single reducer from left to right
 

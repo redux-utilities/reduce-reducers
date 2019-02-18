@@ -29,7 +29,6 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "redux": "^3.6.0",
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-plugin-add-module-exports": "^0.2.1",
