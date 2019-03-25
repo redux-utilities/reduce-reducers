@@ -20,8 +20,8 @@
   "scripts": {
     "precommit": "pretty-quick --staged",
     "format": "pretty-quick",
-    "format:check": "prettier --list-different \"**/*.{js,md}\"",
-    "lint": "xo",
+    "format:check": "prettier --loglevel debug --list-different \"**/*.{js,md}\"",
+    "lint": "xo --prettier",
     "test": "jest",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir=lib",
     "build:es": "babel src --out-dir=es",
