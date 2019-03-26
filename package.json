@@ -11,7 +11,8 @@
   "author": "Andrew Clark <acdlite@me.com>",
   "files": [
     "lib",
-    "es"
+    "es",
+    "index.d.ts"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
