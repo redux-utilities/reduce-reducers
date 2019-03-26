@@ -2,26 +2,20 @@ import reduceReducers from '../src';
 
 test('returns initialState', () => {
   const initialState = { A: 0, B: 0 };
-  const reducer = reduceReducers(
-    (state, payload) => ({
-      ...state,
-      A: state.A + payload
-    }),
-    initialState
-  );
+  const reducer = reduceReducers(initialState, (state, payload) => ({
+    ...state,
+    A: state.A + payload
+  }));
 
   expect(reducer()).toEqual(initialState);
 });
 
 test('passes `initialState` when state is `undefined` and value is defined', () => {
   const initialState = { A: 0, B: 0 };
-  const reducer = reduceReducers(
-    (state, payload) => ({
-      ...state,
-      A: state.A + payload
-    }),
-    initialState
-  );
+  const reducer = reduceReducers(initialState, (state, payload) => ({
+    ...state,
+    A: state.A + payload
+  }));
 
   expect(reducer(undefined, 1)).toEqual({ A: 1, B: 0 });
 });
@@ -97,7 +91,7 @@ test('actions should progressively update state', () => {
     return state;
   };
   const initial = { a: false, b: false };
-  const combined = reduceReducers(reducerA, reducerB, initial);
+  const combined = reduceReducers(initial, reducerA, reducerB);
 
   let state = combined(undefined, { type: 'A' });
   expect(state).toEqual({ a: true, b: false });
