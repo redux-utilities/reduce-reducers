@@ -5,6 +5,6 @@ type Action = {
 type Reducer<S> = (state: S, action: Action) => S;
 
 export default function reduceReducer<S>(
-  initialState: S,
+  initialState: S | null,
   ...reducers: Array<Reducer<S>>
 ): Reducer<S>;
