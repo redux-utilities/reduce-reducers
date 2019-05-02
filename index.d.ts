@@ -4,7 +4,7 @@ type Action = {
 
 type Reducer<S> = (state: S, action: Action) => S;
 
-export default function reduceReducer<S>(
-  initialState: S | null,
-  ...reducers: Array<Reducer<S>>
-): Reducer<S>;
+function reduceReducers<S>(initialState: S | null, ...reducers: Reducer<S>[]): Reducer<S>;
+function reduceReducers<S>(...reducers: Reducer<S>[]): Reducer<S>;
+
+export default reduceReducer;
