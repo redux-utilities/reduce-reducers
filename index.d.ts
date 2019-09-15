@@ -1,5 +1,5 @@
-type Action = {
-  type: string;
+type Action<T extends string> = {
+  type: T;
 };
 
 type Reducer<S> = (state: S, action: Action) => S;
