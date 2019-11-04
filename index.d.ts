@@ -1,8 +1,4 @@
-type Action = {
-  type: string;
-};
-
-type Reducer<S> = (state: S, action: Action) => S;
+import { Reducer } from 'redux';
 
 export default function reduceReducers<S>(
   initialState: S | null,
