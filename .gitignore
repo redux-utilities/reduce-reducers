@@ -3,3 +3,4 @@ es
 lib
 .DS_Store
 *.log
+.idea/
