@@ -15,6 +15,11 @@ export default function reduceReducers<S>(
 ): Reducer<S>;
 export default function reduceReducers<S>(
   initialState: S | null,
+  initialReducer: Reducer<S>,
+  ...reducers: PreloadedReducer<S>[]
+): Reducer<S>;
+export default function reduceReducers<S>(
+  initialState: S | null,
   ...reducers: PreloadedReducer<S>[]
 ): PreloadedReducer<S>;
 export default function reduceReducers<S>(
