@@ -12,7 +12,7 @@ export default (...args) => {
     const prevStateIsUndefined = typeof prevState === 'undefined';
     const valueIsUndefined = typeof value === 'undefined';
 
-    if (prevStateIsUndefined && valueIsUndefined && initialState != null) {
+    if (prevStateIsUndefined && valueIsUndefined && initialState !== null) {
       return initialState;
     }
 
@@ -26,7 +26,7 @@ export default (...args) => {
 
         return reducer(newState, value, ...args);
       },
-      prevStateIsUndefined && !valueIsUndefined && initialState != null
+      prevStateIsUndefined && !valueIsUndefined && initialState !== null
         ? initialState
         : prevState
     );
