@@ -20,6 +20,13 @@ test('passes `initialState` when state is `undefined` and value is defined', () 
   expect(reducer(undefined, 1)).toEqual({ A: 1, B: 0 });
 });
 
+test('passes falsy `initialState` when state is `undefined` and value is defined', () => {
+  const initialState = '';
+  const reducer = reduceReducers(initialState, (state, payload) => state);
+
+  expect(reducer(undefined, 1)).toEqual('');
+});
+
 test('throws an error if initialState is undefined', () => {
   expect(() => {
     reduceReducers(undefined);
