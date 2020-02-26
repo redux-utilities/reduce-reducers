@@ -22,7 +22,7 @@ test('passes `initialState` when state is `undefined` and value is defined', () 
 
 test('passes falsy `initialState` when state is `undefined` and value is defined', () => {
   const initialState = '';
-  const reducer = reduceReducers(initialState, (state, payload) => state);
+  const reducer = reduceReducers(initialState, state => state);
 
   expect(reducer(undefined, 1)).toEqual('');
 });

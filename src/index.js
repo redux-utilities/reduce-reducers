@@ -1,5 +1,5 @@
 export default (...args) => {
-  const initialState = typeof args[0] !== 'function' ? args.shift() : null;
+  const initialState = typeof args[0] === 'function' ? null : args.shift();
   const reducers = args;
 
   if (typeof initialState === 'undefined') {
