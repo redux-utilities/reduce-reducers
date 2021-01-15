@@ -2,12 +2,13 @@ type Action = {
   type: string;
 };
 
-type Reducer<S> = (state: S, action: Action) => S;
+type Reducer<S, A> = (state: S, action: A) => S;
 
-export default function reduceReducers<S>(
+export default function reduceReducers<S, A = Action>(
   initialState: S | null,
-  ...reducers: Reducer<S>[]
-): Reducer<S>;
-export default function reduceReducers<S>(
-  ...reducers: Reducer<S>[]
-): Reducer<S>;
+  ...reducers: Reducer<S, A>[]
+): Reducer<S, A>;
+
+export default function reduceReducers<S, A = Action>(
+  ...reducers: Reducer<S, A>[]
+): Reducer<S, A>;
