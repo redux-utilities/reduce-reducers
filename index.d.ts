@@ -1,13 +1,14 @@
-type Action = {
-  type: string;
+type Action<T = any> = {
+  type: T;
 };
 
-type Reducer<S> = (state: S, action: Action) => S;
+type Reducer<S, A extends Action> = (state: S, action: A) => S;
 
-export default function reduceReducers<S>(
-  initialState: S | null,
-  ...reducers: Reducer<S>[]
-): Reducer<S>;
-export default function reduceReducers<S>(
-  ...reducers: Reducer<S>[]
-): Reducer<S>;
+export default function reduceReducers<S, A extends Action>(
+  initialState?: S,
+  ...reducers: Reducer<S, A>[]
+): Reducer<S, A>;
+
+export default function reduceReducers<S, A extends Action>(
+  ...reducers: Reducer<S, A>[]
+): Reducer<S, A>;
